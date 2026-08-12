@@ -50,12 +50,12 @@ Sign into Grok Bot Super at https://agentmindcloud.github.io/grok-bot-super/ and
 | Skill | What it does |
 |-------|--------------|
 | [Email Triage](skills/email-triage/SKILL.md) | Prioritize inbox + draft ready-to-send replies |
+| [Follow-up Drafter](skills/follow-up-drafter/SKILL.md) | Natural high-signal follow-ups after meetings or silence |
 | [Research Brief](skills/research-brief/SKILL.md) | Research question → tight, source-backed brief |
 | [Meeting → Actions](skills/meeting-to-actions/SKILL.md) | Notes or transcript → clear owners & deadlines |
 | [X Thread Builder](skills/x-thread-builder/SKILL.md) | Idea or long text → high-signal ready-to-post thread |
 | [Daily Standup Summary](skills/daily-standup-summary/SKILL.md) | Raw notes → clean professional standup |
-
-More skills coming. Community contributions welcome.
+| [Weekly Review](skills/weekly-review/SKILL.md) | Week of notes → clarity + next-week priorities |
 
 ---
 
@@ -71,9 +71,10 @@ Good skills are practical, clear, and safe. Prefer step-by-step instructions a B
 ### Roadmap
 
 - [x] Beautiful landing page
-- [x] Core skill library (5 starter skills)
+- [x] Core skill library (7 skills)
 - [x] Zero-friction onboarding flow
-- [ ] Skill browser page
+- [x] Skill browser page
+- [x] Tiny demo section (how the Bot learns a skill)
 - [ ] Simple shared memory board
 - [ ] Bot skins / personality packs
 - [ ] Community skill submissions via PR
