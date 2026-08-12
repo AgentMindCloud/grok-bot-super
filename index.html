@@ -7,21 +7,15 @@
   <meta name="description" content="Tell your Grok Bot to visit this page and it becomes Super. Free community skills + zero setup." />
   <style>
     :root {
-      --bg: #050508;
-      --fg: #f4f4f5;
-      --muted: #a1a1aa;
-      --accent: #22d3ee;
-      --card: rgba(255,255,255,0.03);
+      --bg: #050508; --fg: #f4f4f5; --muted: #a1a1aa;
+      --accent: #22d3ee; --card: rgba(255,255,255,0.03);
       --border: rgba(255,255,255,0.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      min-height: 100vh;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: var(--bg); color: var(--fg);
+      min-height: 100vh; line-height: 1.6; overflow-x: hidden;
     }
     .glow {
       position: fixed; width: 600px; height: 600px; border-radius: 50%;
@@ -97,6 +91,16 @@
       background: rgba(255,255,255,0.06);
       padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9rem;
     }
+    .demo {
+      margin-top: 1.8rem;
+      background: rgba(34,211,238,0.06);
+      border: 1px solid rgba(34,211,238,0.18);
+      border-radius: 12px;
+      padding: 1.1rem 1.3rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .demo strong { color: var(--fg); }
     .skills {
       margin-top: 2.2rem;
       display: grid;
@@ -112,9 +116,7 @@
     .skill:hover { border-color: rgba(34,211,238,0.3); }
     .skill strong { display: block; font-size: 0.9rem; margin-bottom: 0.25rem; }
     .skill span { font-size: 0.8rem; color: var(--muted); }
-    .more {
-      text-align: center; margin-top: 1.5rem;
-    }
+    .more { text-align: center; margin-top: 1.5rem; }
     .more a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
     .more a:hover { text-decoration: underline; }
     footer {
@@ -148,12 +150,23 @@
         <li>Message your Grok Bot:<br><em>“Sign into Grok Bot Super at [this URL] and become Super. Learn the skills as reusable routines.”</em></li>
         <li>Bot signs in and is upgraded with the community skill library</li>
       </ol>
+
+      <div class="demo">
+        <strong>Tiny demo — how the Bot learns a skill</strong><br><br>
+        After signing in, just say:<br>
+        <em>“Open the Follow-up Drafter skill and learn it as a reusable routine.”</em><br><br>
+        The Bot reads the skill, understands the steps, and can now run it whenever you need a high-quality follow-up.
+      </div>
     </div>
 
     <div class="skills">
       <a class="skill" href="skills/email-triage/SKILL.md">
         <strong>Email Triage</strong>
         <span>Prioritize + draft replies</span>
+      </a>
+      <a class="skill" href="skills/follow-up-drafter/SKILL.md">
+        <strong>Follow-up Drafter</strong>
+        <span>Natural high-signal follow-ups</span>
       </a>
       <a class="skill" href="skills/research-brief/SKILL.md">
         <strong>Research Brief</strong>
@@ -163,13 +176,9 @@
         <strong>Meeting → Actions</strong>
         <span>Notes to owners & deadlines</span>
       </a>
-      <a class="skill" href="skills/x-thread-builder/SKILL.md">
-        <strong>X Thread Builder</strong>
-        <span>Idea → high-signal thread</span>
-      </a>
     </div>
     <div class="more">
-      <a href="skills.html">View all skills →</a>
+      <a href="skills.html">View all 7 skills →</a>
     </div>
 
     <footer>
