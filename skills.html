@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills — Grok Bot Super</title>
+  <style>
+    :root {
+      --bg: #050508;
+      --fg: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #22d3ee;
+      --card: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .glow {
+      position: fixed; width: 500px; height: 500px; border-radius: 50%;
+      filter: blur(100px); opacity: 0.2; pointer-events: none; z-index: 0;
+    }
+    .g1 { top: -150px; left: -80px; background: #22d3ee; }
+    .g2 { bottom: -150px; right: -80px; background: #a78bfa; }
+    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    header { margin-bottom: 2.5rem; }
+    a.back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    a.back:hover { color: var(--accent); }
+    h1 { font-size: 2rem; margin: 0.8rem 0 0.4rem; letter-spacing: -0.02em; }
+    .sub { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card:hover {
+      border-color: rgba(34,211,238,0.35);
+      transform: translateY(-2px);
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+    .card p { font-size: 0.88rem; color: var(--muted); }
+    .tag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(34,211,238,0.1);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="wrap">
+    <header>
+      <a class="back" href="index.html">← Back to Super</a>
+      <h1>Skills Library</h1>
+      <p class="sub">Point your Grok Bot at any skill below. It will learn it as a reusable routine.</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" href="skills/email-triage/SKILL.md">
+        <h3>Email Triage</h3>
+        <p>Prioritize your inbox and get ready-to-send reply drafts.</p>
+        <span class="tag">Daily Work</span>
+      </a>
+      <a class="card" href="skills/research-brief/SKILL.md">
+        <h3>Research Brief</h3>
+        <p>Turn any research question into a tight, source-backed brief.</p>
+        <span class="tag">Knowledge</span>
+      </a>
+      <a class="card" href="skills/meeting-to-actions/SKILL.md">
+        <h3>Meeting → Actions</h3>
+        <p>Raw notes or transcript become clear owners and deadlines.</p>
+        <span class="tag">Meetings</span>
+      </a>
+      <a class="card" href="skills/x-thread-builder/SKILL.md">
+        <h3>X Thread Builder</h3>
+        <p>Idea or long text → high-signal, ready-to-post thread.</p>
+        <span class="tag">Content</span>
+      </a>
+      <a class="card" href="skills/daily-standup-summary/SKILL.md">
+        <h3>Daily Standup Summary</h3>
+        <p>Messy notes become a clean professional standup.</p>
+        <span class="tag">Team</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
