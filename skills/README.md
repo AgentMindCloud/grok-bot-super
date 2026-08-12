@@ -7,6 +7,7 @@ Browse and contribute skills that any Grok Bot can learn.
 | Skill | Description |
 |-------|-------------|
 | [email-triage](./email-triage/SKILL.md) | Prioritize inbox + draft replies |
+| [follow-up-drafter](./follow-up-drafter/SKILL.md) | Natural high-signal follow-ups after meetings or silence |
 | [research-brief](./research-brief/SKILL.md) | Research question → tight source-backed brief |
 | [meeting-to-actions](./meeting-to-actions/SKILL.md) | Notes/transcript → clear owners & action items |
 | [x-thread-builder](./x-thread-builder/SKILL.md) | Idea or long text → high-signal X thread |
