@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grok Bot Super</title>
+  <style>
+    :root { --bg: #0a0a0a; --fg: #f5f5f5; --accent: #00ff9d; --muted: #888; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .tag { color: var(--accent); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    p { max-width: 480px; text-align: center; color: var(--muted); margin-bottom: 2rem; }
+    .cta { background: var(--accent); color: #000; border: none; padding: 0.9rem 1.8rem; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; }
+    .cta:hover { filter: brightness(1.1); }
+    .steps { margin-top: 3rem; text-align: left; max-width: 420px; }
+    .steps h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+    .steps ol { padding-left: 1.2rem; color: var(--muted); }
+    .steps li { margin-bottom: 0.6rem; }
+    footer { margin-top: 4rem; font-size: 0.8rem; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="tag">Free Community Project</div>
+  <h1>Grok Bot Super</h1>
+  <p>Zero-setup power-up for Grok Bot.<br>Tell your Bot to visit this page and it becomes Super.</p>
+
+  <a class="cta" href="#how">Become Super</a>
+
+  <div class="steps" id="how">
+    <h2>How it works (30 seconds)</h2>
+    <ol>
+      <li>Copy this page URL</li>
+      <li>Message your Grok Bot:<br><em>“Sign into Grok Bot Super at [this URL] and become Super”</em></li>
+      <li>Bot signs in, learns the community skills, and is upgraded</li>
+    </ol>
+  </div>
+
+  <footer>
+    Built by <a href="https://github.com/AgentMindCloud" style="color:#888">AgentMindCloud</a> · MIT · 
+    <a href="https://github.com/AgentMindCloud/grok-bot-super" style="color:#888">Source</a>
+  </footer>
+</body>
+</html>
