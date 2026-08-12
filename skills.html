@@ -6,20 +6,15 @@
   <title>Skills — Grok Bot Super</title>
   <style>
     :root {
-      --bg: #050508;
-      --fg: #f4f4f5;
-      --muted: #a1a1aa;
-      --accent: #22d3ee;
-      --card: rgba(255,255,255,0.03);
+      --bg: #050508; --fg: #f4f4f5; --muted: #a1a1aa;
+      --accent: #22d3ee; --card: rgba(255,255,255,0.03);
       --border: rgba(255,255,255,0.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      min-height: 100vh;
-      line-height: 1.6;
+      background: var(--bg); color: var(--fg);
+      min-height: 100vh; line-height: 1.6;
     }
     .glow {
       position: fixed; width: 500px; height: 500px; border-radius: 50%;
@@ -36,36 +31,22 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 1rem; margin-top: 2rem;
     }
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.4rem 1.5rem;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.4rem 1.5rem;
       transition: border-color 0.2s, transform 0.2s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      text-decoration: none; color: inherit; display: block;
     }
-    .card:hover {
-      border-color: rgba(34,211,238,0.35);
-      transform: translateY(-2px);
-    }
+    .card:hover { border-color: rgba(34,211,238,0.35); transform: translateY(-2px); }
     .card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
     .card p { font-size: 0.88rem; color: var(--muted); }
     .tag {
-      display: inline-block;
-      margin-top: 0.8rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(34,211,238,0.1);
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
+      display: inline-block; margin-top: 0.8rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(34,211,238,0.1); padding: 0.2rem 0.55rem; border-radius: 999px;
     }
   </style>
 </head>
@@ -104,6 +85,11 @@
         <h3>Daily Standup Summary</h3>
         <p>Messy notes become a clean professional standup.</p>
         <span class="tag">Team</span>
+      </a>
+      <a class="card" href="skills/weekly-review/SKILL.md">
+        <h3>Weekly Review</h3>
+        <p>Week of notes → clarity + next-week priorities.</p>
+        <span class="tag">Clarity</span>
       </a>
     </div>
   </div>
