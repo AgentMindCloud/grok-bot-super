@@ -1,48 +1,86 @@
-# Grok Bot Super
+<p align="center">
+  <img src="assets/logo.svg" alt="Grok Bot Super" width="140" />
+</p>
 
-**Zero-setup power-up for Grok Bot.**  
-Just tell your Bot to visit the site and it becomes Super.
+<h1 align="center">Grok Bot Super</h1>
 
-## What it is
+<p align="center">
+  <strong>Zero-setup power-up for Grok Bot</strong><br>
+  Tell your Bot to visit the site → it becomes Super.
+</p>
 
-A beautiful, free community website + skill library that Grok Bot can sign into like any other app.  
-No MCP. No Docker. No tunnels. No YAML knowledge required.
+<p align="center">
+  <a href="https://agentmindcloud.github.io/grok-bot-super/">
+    <img src="https://img.shields.io/badge/Live_Site-Visit_Now-22d3ee?style=for-the-badge&logo=github" alt="Live Site" />
+  </a>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Status-Public_Beta-a78bfa?style=for-the-badge" alt="Status" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
+</p>
 
-Users get:
-- Community skill library (one-click learnable routines)
-- Shared memory board
-- Pre-built workflows
-- Bot skins & personality packs (coming)
-- Super-simple onboarding
+---
 
-## How a normal user gets Super (30 seconds)
+### Why this exists
 
-1. Open the live site (GitHub Pages or your deploy)
-2. Copy the invite / start link
+Grok Bot is already powerful.  
+**Grok Bot Super** makes it immediately more useful for everyday work — without any technical setup.
+
+No MCP. No Docker. No tunnels. No YAML.  
+Just a clean website the Bot can sign into like any other app.
+
+---
+
+### How to become Super (30 seconds)
+
+1. Open the live site → [agentmindcloud.github.io/grok-bot-super](https://agentmindcloud.github.io/grok-bot-super/)
+2. Copy the URL
 3. Message your Grok Bot:
 
-> Sign into Grok Bot Super with this link and become Super: [link]
+```text
+Sign into Grok Bot Super at https://agentmindcloud.github.io/grok-bot-super/ and become Super. Learn the available skills as reusable routines.
+```
 
-4. Bot signs in, learns the Super routines, and is upgraded.
+4. Done. The Bot now has access to the community skill library.
 
-That’s it.
+---
 
-## For contributors
+### Current Skills (real value)
 
-Skills live in `/skills` as simple Markdown files.  
-See `CONTRIBUTING.md` and the skill template.
+| Skill | What it does |
+|-------|--------------|
+| [Email Triage](skills/email-triage/SKILL.md) | Prioritize inbox + draft ready-to-send replies |
+| [Research Brief](skills/research-brief/SKILL.md) | Research question → tight, source-backed brief |
+| [Meeting → Actions](skills/meeting-to-actions/SKILL.md) | Notes or transcript → clear owners & deadlines |
+| [X Thread Builder](skills/x-thread-builder/SKILL.md) | Idea or long text → high-signal ready-to-post thread |
+| [Daily Standup Summary](skills/daily-standup-summary/SKILL.md) | Raw notes → clean professional standup |
 
-## Status
+More skills coming. Community contributions welcome.
 
-- [x] Repo created
-- [ ] Landing page + skill browser (MVP)
-- [ ] Sample skills
-- [ ] Deploy instructions (GitHub Pages / Vercel)
-- [ ] Memory board (simple)
-- [ ] Skins (later)
+---
 
-## License
+### For contributors
 
-MIT — free community project.
+Skills are simple Markdown files.  
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) and the template in `skills/_template/`.
 
-Built for the Grok / SpaceXAI community by AgentMindCloud.
+Good skills are practical, clear, and safe. Prefer step-by-step instructions a Bot can actually follow.
+
+---
+
+### Roadmap
+
+- [x] Beautiful landing page
+- [x] Core skill library (5 starter skills)
+- [x] Zero-friction onboarding flow
+- [ ] Skill browser page
+- [ ] Simple shared memory board
+- [ ] Bot skins / personality packs
+- [ ] Community skill submissions via PR
+
+---
+
+<p align="center">
+  Built for the Grok / SpaceXAI community by <a href="https://github.com/AgentMindCloud">AgentMindCloud</a><br>
+  MIT License · Free forever core
+</p>
