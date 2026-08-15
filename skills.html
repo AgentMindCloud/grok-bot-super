@@ -4,99 +4,572 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills — Grok Bot Super</title>
+  <meta name="description" content="Community skill library for Grok Bot Super. Point your bot at any skill and it learns it as a reusable routine." />
   <style>
     :root {
-      --bg: #050508; --fg: #f4f4f5; --muted: #a1a1aa;
-      --accent: #22d3ee; --card: rgba(255,255,255,0.03);
-      --border: rgba(255,255,255,0.08);
+      --bg: #050508;
+      --fg: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #22d3ee;
+      --accent2: #a78bfa;
+      --card: rgba(255,255,255,0.035);
+      --border: rgba(255,255,255,0.09);
+      --glow: rgba(34,211,238,0.45);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg); color: var(--fg);
-      min-height: 100vh; line-height: 1.6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      line-height: 1.55;
+      overflow-x: hidden;
     }
+
+    /* Animated background glows */
     .glow {
-      position: fixed; width: 500px; height: 500px; border-radius: 50%;
-      filter: blur(100px); opacity: 0.2; pointer-events: none; z-index: 0;
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      filter: blur(110px);
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 0;
+      animation: float 18s ease-in-out infinite;
     }
-    .g1 { top: -150px; left: -80px; background: #22d3ee; }
-    .g2 { bottom: -150px; right: -80px; background: #a78bfa; }
-    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
-    header { margin-bottom: 2.5rem; }
-    a.back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    .g1 { top: -180px; left: -120px; background: #22d3ee; }
+    .g2 { bottom: -200px; right: -100px; background: #a78bfa; animation-delay: -6s; }
+    .g3 { top: 40%; left: 50%; width: 300px; height: 300px; background: #22d3ee; opacity: 0.08; animation-delay: -12s; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 15px) scale(0.95); }
+    }
+
+    /* Subtle grid overlay */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2.5rem 1.4rem 5rem;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.2rem;
+      text-align: center;
+    }
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-bottom: 0.9rem;
+    }
+    .logo {
+      width: 52px;
+      height: 52px;
+      filter: drop-shadow(0 0 12px rgba(34,211,238,0.4));
+    }
+    a.back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      margin-bottom: 1.1rem;
+      transition: color 0.2s;
+    }
     a.back:hover { color: var(--accent); }
-    h1 { font-size: 2rem; margin: 0.8rem 0 0.4rem; letter-spacing: -0.02em; }
-    .sub { color: var(--muted); }
+    h1 {
+      font-size: clamp(1.85rem, 5vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(135deg, #fff 25%, #a5f3fc 70%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 420px;
+      margin: 0 auto 1.1rem;
+    }
+    .count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(34,211,238,0.1);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.32rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34,211,238,0.28);
+    }
+
+    /* Master prompt */
+    .prompt-card {
+      margin: 1.6rem 0 1.8rem;
+      background: rgba(34,211,238,0.07);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: 16px;
+      padding: 1.3rem 1.4rem;
+      text-align: left;
+    }
+    .prompt-card h2 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+    .prompt-text {
+      font-size: 0.92rem;
+      color: var(--fg);
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.95rem;
+      line-height: 1.5;
+      border: 1px solid var(--border);
+    }
+    .btn-copy-master {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #22d3ee, #67e8f9);
+      color: #0a0a0c;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 0 24px rgba(34,211,238,0.3);
+    }
+    .btn-copy-master:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 36px rgba(34,211,238,0.5);
+    }
+    .btn-copy-master.copied {
+      background: #10b981;
+      box-shadow: 0 0 24px rgba(16,185,129,0.35);
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .search-wrap {
+      position: relative;
+    }
+    .search-wrap input {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem 1.1rem 0.85rem 2.7rem;
+      color: var(--fg);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-wrap input::placeholder { color: #71717a; }
+    .search-wrap input:focus {
+      border-color: rgba(34,211,238,0.45);
+      box-shadow: 0 0 0 3px rgba(34,211,238,0.12);
+    }
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #71717a;
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .filter-btn:hover { border-color: rgba(34,211,238,0.35); color: var(--fg); }
+    .filter-btn.active {
+      background: rgba(34,211,238,0.15);
+      border-color: rgba(34,211,238,0.5);
+      color: var(--accent);
+      box-shadow: 0 0 18px rgba(34,211,238,0.18);
+    }
+
+    /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem; margin-top: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.1rem;
     }
+
+    /* Cards */
     .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.4rem 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
-      text-decoration: none; color: inherit; display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: cardIn 0.5s ease forwards;
     }
-    .card:hover { border-color: rgba(34,211,238,0.35); transform: translateY(-2px); }
-    .card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
-    .card p { font-size: 0.88rem; color: var(--muted); }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(34,211,238,0.08), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-4px) scale(1.015);
+      border-color: rgba(34,211,238,0.55);
+      box-shadow: 0 0 0 1px rgba(34,211,238,0.25), 0 12px 40px rgba(34,211,238,0.12), 0 0 60px rgba(167,139,250,0.08);
+    }
+    .card:hover::before { opacity: 1; }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.2s; }
+    .card:nth-child(5) { animation-delay: 0.25s; }
+    .card:nth-child(6) { animation-delay: 0.3s; }
+    .card:nth-child(7) { animation-delay: 0.35s; }
+
+    .card-icon {
+      font-size: 1.7rem;
+      margin-bottom: 0.7rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 8px rgba(34,211,238,0.3));
+    }
+    .card h3 {
+      font-size: 1.08rem;
+      font-weight: 650;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+    }
+    .card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-grow: 1;
+      margin-bottom: 0.9rem;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-top: auto;
+    }
     .tag {
-      display: inline-block; margin-top: 0.8rem;
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
-      text-transform: uppercase; color: var(--accent);
-      background: rgba(34,211,238,0.1); padding: 0.2rem 0.55rem; border-radius: 999px;
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(34,211,238,0.1);
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+    }
+    .copy-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.28rem 0.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .copy-btn:hover {
+      background: rgba(34,211,238,0.12);
+      border-color: rgba(34,211,238,0.4);
+      color: var(--accent);
+    }
+    .copy-btn.copied {
+      background: rgba(34,211,238,0.2);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Empty state */
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #52525b;
+    }
+    footer a {
+      color: #71717a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--accent); }
+
+    /* Hidden for filter */
+    .card.hidden { display: none; }
+
+    @media (max-width: 520px) {
+      .wrap { padding: 1.8rem 1rem 4rem; }
+      .card { padding: 1.2rem; }
     }
   </style>
 </head>
 <body>
   <div class="glow g1"></div>
   <div class="glow g2"></div>
+  <div class="glow g3"></div>
+  <div class="grid-bg"></div>
+
   <div class="wrap">
+    <a class="back" href="index.html">← Back to Super</a>
+
     <header>
-      <a class="back" href="index.html">← Back to Super</a>
+      <div class="logo-row">
+        <img class="logo" src="assets/logo.svg" alt="Grok Bot Super" />
+      </div>
       <h1>Skills Library</h1>
-      <p class="sub">Point your Grok Bot at any skill below. It will learn it as a reusable routine.</p>
+      <p class="sub">Point your Grok Bot at any skill. It learns it as a reusable routine.</p>
+      <div class="count-badge"><span id="skill-count">7</span> community skills</div>
     </header>
 
-    <div class="grid">
-      <a class="card" href="skills/email-triage/SKILL.md">
+    <div class="prompt-card">
+      <h2>⚡ Become Super — one prompt</h2>
+      <div class="prompt-text" id="masterPrompt">Sign into Grok Bot Super at https://agentmindcloud.github.io/grok-bot-super/ and become Super. Learn the available skills as reusable routines.</div>
+      <button class="btn-copy-master" id="copyMaster">Copy Prompt</button>
+    </div>
+
+    <div class="controls">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="search" id="search" placeholder="Search skills…" autocomplete="off" />
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Daily Work">Daily Work</button>
+        <button class="filter-btn" data-filter="Sales & Relations">Sales</button>
+        <button class="filter-btn" data-filter="Knowledge">Knowledge</button>
+        <button class="filter-btn" data-filter="Meetings">Meetings</button>
+        <button class="filter-btn" data-filter="Content">Content</button>
+        <button class="filter-btn" data-filter="Team">Team</button>
+        <button class="filter-btn" data-filter="Clarity">Clarity</button>
+      </div>
+    </div>
+
+    <div class="grid" id="grid">
+      <a class="card" href="skills/email-triage/SKILL.md" data-category="Daily Work" data-name="Email Triage" data-desc="Prioritize your inbox and get ready-to-send reply drafts.">
+        <div class="card-icon">📧</div>
         <h3>Email Triage</h3>
         <p>Prioritize your inbox and get ready-to-send reply drafts.</p>
-        <span class="tag">Daily Work</span>
+        <div class="card-footer">
+          <span class="tag">Daily Work</span>
+          <button class="copy-btn" data-skill="Email Triage">Copy prompt</button>
+        </div>
       </a>
-      <a class="card" href="skills/follow-up-drafter/SKILL.md">
+
+      <a class="card" href="skills/follow-up-drafter/SKILL.md" data-category="Sales & Relations" data-name="Follow-up Drafter" data-desc="Natural high-signal follow-ups after meetings or silence.">
+        <div class="card-icon">🔄</div>
         <h3>Follow-up Drafter</h3>
         <p>Natural high-signal follow-ups after meetings or silence.</p>
-        <span class="tag">Sales & Relations</span>
+        <div class="card-footer">
+          <span class="tag">Sales & Relations</span>
+          <button class="copy-btn" data-skill="Follow-up Drafter">Copy prompt</button>
+        </div>
       </a>
-      <a class="card" href="skills/research-brief/SKILL.md">
+
+      <a class="card" href="skills/research-brief/SKILL.md" data-category="Knowledge" data-name="Research Brief" data-desc="Turn any research question into a tight, source-backed brief.">
+        <div class="card-icon">🔬</div>
         <h3>Research Brief</h3>
         <p>Turn any research question into a tight, source-backed brief.</p>
-        <span class="tag">Knowledge</span>
+        <div class="card-footer">
+          <span class="tag">Knowledge</span>
+          <button class="copy-btn" data-skill="Research Brief">Copy prompt</button>
+        </div>
       </a>
-      <a class="card" href="skills/meeting-to-actions/SKILL.md">
+
+      <a class="card" href="skills/meeting-to-actions/SKILL.md" data-category="Meetings" data-name="Meeting → Actions" data-desc="Raw notes or transcript become clear owners and deadlines.">
+        <div class="card-icon">📋</div>
         <h3>Meeting → Actions</h3>
         <p>Raw notes or transcript become clear owners and deadlines.</p>
-        <span class="tag">Meetings</span>
+        <div class="card-footer">
+          <span class="tag">Meetings</span>
+          <button class="copy-btn" data-skill="Meeting → Actions">Copy prompt</button>
+        </div>
       </a>
-      <a class="card" href="skills/x-thread-builder/SKILL.md">
+
+      <a class="card" href="skills/x-thread-builder/SKILL.md" data-category="Content" data-name="X Thread Builder" data-desc="Idea or long text → high-signal, ready-to-post thread.">
+        <div class="card-icon">🧵</div>
         <h3>X Thread Builder</h3>
         <p>Idea or long text → high-signal, ready-to-post thread.</p>
-        <span class="tag">Content</span>
+        <div class="card-footer">
+          <span class="tag">Content</span>
+          <button class="copy-btn" data-skill="X Thread Builder">Copy prompt</button>
+        </div>
       </a>
-      <a class="card" href="skills/daily-standup-summary/SKILL.md">
+
+      <a class="card" href="skills/daily-standup-summary/SKILL.md" data-category="Team" data-name="Daily Standup Summary" data-desc="Messy notes become a clean professional standup.">
+        <div class="card-icon">🗣️</div>
         <h3>Daily Standup Summary</h3>
         <p>Messy notes become a clean professional standup.</p>
-        <span class="tag">Team</span>
+        <div class="card-footer">
+          <span class="tag">Team</span>
+          <button class="copy-btn" data-skill="Daily Standup Summary">Copy prompt</button>
+        </div>
       </a>
-      <a class="card" href="skills/weekly-review/SKILL.md">
+
+      <a class="card" href="skills/weekly-review/SKILL.md" data-category="Clarity" data-name="Weekly Review" data-desc="Week of notes → clarity + next-week priorities.">
+        <div class="card-icon">📅</div>
         <h3>Weekly Review</h3>
         <p>Week of notes → clarity + next-week priorities.</p>
-        <span class="tag">Clarity</span>
+        <div class="card-footer">
+          <span class="tag">Clarity</span>
+          <button class="copy-btn" data-skill="Weekly Review">Copy prompt</button>
+        </div>
       </a>
+
+      <div class="empty" id="empty">No skills match your search.</div>
     </div>
+
+    <footer>
+      Built by <a href="https://github.com/AgentMindCloud">AgentMindCloud</a> · MIT ·
+      <a href="https://github.com/AgentMindCloud/grok-bot-super">Source</a> ·
+      <a href="https://github.com/AgentMindCloud/grok-bot-super/blob/main/CONTRIBUTING.md">Add a skill</a>
+    </footer>
   </div>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    const empty = document.getElementById('empty');
+    let activeFilter = 'all';
+
+    function filterCards() {
+      const q = searchInput.value.toLowerCase().trim();
+      let visible = 0;
+      cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const desc = card.dataset.desc.toLowerCase();
+        const cat = card.dataset.category;
+        const matchesSearch = !q || name.includes(q) || desc.includes(q) || cat.toLowerCase().includes(q);
+        const matchesFilter = activeFilter === 'all' || cat === activeFilter;
+        if (matchesSearch && matchesFilter) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      empty.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', filterCards);
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        filterCards();
+      });
+    });
+
+    // Copy prompt buttons
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const skill = btn.dataset.skill;
+        const text = `Open the ${skill} skill and learn it as a reusable routine.`;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('copied');
+          }, 1600);
+        });
+      });
+    });
+
+    // Master prompt copy
+    document.getElementById('copyMaster').addEventListener('click', () => {
+      const text = document.getElementById('masterPrompt').textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyMaster');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy Prompt';
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    });
+  </script>
 </body>
 </html>
