@@ -23,6 +23,13 @@ User asks for research on a topic, competitor, market, person, or technology.
    - Sources (with links)
 6. Keep the brief under one page unless deep mode is requested.
 
+## How to validate
+
+- Every key finding has a source link.
+- Conflicts and confidence are stated.
+- Length stays under one page unless deep mode was requested.
+- If sources are missing, stale, or contradictory, say so and lower confidence.
+
 ## Always ask for approval when
 
 - Publishing or sending the brief externally

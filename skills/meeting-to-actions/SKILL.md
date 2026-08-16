@@ -22,6 +22,12 @@ None (text only). Optional calendar if scheduling is requested.
 5. Flag anything still ambiguous.
 6. Output a clean action list the team can actually use.
 
+## How to validate
+
+- Every action has what to do, plus owner **or** “unassigned”, plus due **or** “unspecified”.
+- No owners or dates were invented.
+- Ambiguities sit under Open Questions, not Action Items.
+
 ## Always ask for approval when
 
 - Assigning work to other people
