@@ -61,6 +61,7 @@ Official save paths (from [Grok Bot docs](https://docs.x.ai/grok-bot/skills-rout
 | [X Thread Builder](skills/x-thread-builder/SKILL.md) | Idea or long text → high-signal ready-to-post thread |
 | [Daily Standup Summary](skills/daily-standup-summary/SKILL.md) | Raw notes → clean professional standup |
 | [Weekly Review](skills/weekly-review/SKILL.md) | Week of notes → clarity + next-week priorities |
+| [Account Health Watch List](skills/account-health-watch-list/SKILL.md) | Portfolio → ranked risk/expansion watch list |
 
 ---
 
@@ -76,7 +77,7 @@ Good skills are practical, clear, and safe. Prefer step-by-step instructions a B
 ### Roadmap
 
 - [x] Beautiful landing page
-- [x] Core skill library (7 skills)
+- [x] Core skill library (8 skills)
 - [x] Zero-friction onboarding flow
 - [x] Skill browser page
 - [x] Tiny demo section (how the Bot learns a skill)

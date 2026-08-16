@@ -15,6 +15,7 @@ A **skill** is how to do a task. A **routine** is when one Bot runs it — only 
 | [x-thread-builder](./x-thread-builder/SKILL.md) | Idea or long text → high-signal X thread |
 | [daily-standup-summary](./daily-standup-summary/SKILL.md) | Clean professional standup from raw notes |
 | [weekly-review](./weekly-review/SKILL.md) | Week of notes → clarity + next-week priorities |
+| [account-health-watch-list](./account-health-watch-list/SKILL.md) | Portfolio → ranked risk/expansion watch list |
 
 ## How a Bot uses a playbook
 
