@@ -17,6 +17,12 @@ Describe the situation or trigger.
 3. Decision rules if any
 4. Final output format
 
+## How to validate
+
+- What “good” looks like (complete, sourced, within scope)
+- What to do if sources are missing, stale, or contradictory
+- What must stay a draft until the human approves
+
 ## Always ask for approval when
 
 - Sending messages to real people

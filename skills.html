@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills — Grok Bot Super</title>
-  <meta name="description" content="Community skill library for Grok Bot Super. Point your bot at any skill and it learns it as a reusable routine." />
+  <meta name="description" content="Community playbook library for Grok Bot. Reading a skill is not the same as saving it." />
   <style>
     :root {
       --bg: #050508;
@@ -393,13 +393,13 @@
         <img class="logo" src="assets/logo.svg" alt="Grok Bot Super" />
       </div>
       <h1>Skills Library</h1>
-      <p class="sub">Point your Grok Bot at any skill. It learns it as a reusable routine.</p>
+      <p class="sub">Playbook library. Reading a skill is not the same as saving it.</p>
       <div class="count-badge"><span id="skill-count">7</span> community skills</div>
     </header>
 
     <div class="prompt-card">
-      <h2>⚡ Become Super — one prompt</h2>
-      <div class="prompt-text" id="masterPrompt">Sign into Grok Bot Super at https://agentmindcloud.github.io/grok-bot-super/ and become Super. Learn the available skills as reusable routines.</div>
+      <h2>⚡ Read playbooks — then save as a skill</h2>
+      <div class="prompt-text" id="masterPrompt">Read the playbooks at https://agentmindcloud.github.io/grok-bot-super/skills.html. For each skill you want to keep, run it once on a safe example, then save it as a Grok Bot skill (Settings → Plugins or “save the process as a skill”). Do not create a routine until that skill is saved and tested. Do not send, post, or delete without approval.</div>
       <button class="btn-copy-master" id="copyMaster">Copy Prompt</button>
     </div>
 
@@ -544,7 +544,9 @@
         e.preventDefault();
         e.stopPropagation();
         const skill = btn.dataset.skill;
-        const text = `Open the ${skill} skill and learn it as a reusable routine.`;
+        const card = btn.closest('a.card');
+        const url = card ? new URL(card.getAttribute('href'), window.location.href).href : '';
+        const text = `Read this playbook and run it once on a safe example (do not send/post/delete). Then save it as a skill — not a routine — called “${skill}”:\n${url}`;
         navigator.clipboard.writeText(text).then(() => {
           const original = btn.textContent;
           btn.textContent = 'Copied!';
