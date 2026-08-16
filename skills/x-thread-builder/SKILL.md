@@ -8,7 +8,7 @@ User has an idea, draft, article, or notes they want turned into a strong X thre
 
 ## Required access
 
-None. Pure writing skill. (Bot can later post if user has given permission.)
+None. Pure writing skill.
 
 ## Steps
 
