@@ -5,8 +5,8 @@
 <h1 align="center">Grok Bot Super</h1>
 
 <p align="center">
-  <strong>Zero-setup power-up for Grok Bot</strong><br>
-  Tell your Bot to visit the site → it becomes Super.
+  <strong>A community playbook library a Grok Bot can <em>read</em></strong><br>
+  Saving is a Grok Bot action, not this website.
 </p>
 
 <p align="center">
@@ -23,25 +23,30 @@
 
 ### Why this exists
 
-Grok Bot is already powerful.  
-**Grok Bot Super** makes it immediately more useful for everyday work — without any technical setup.
+Grok Bot is already powerful.
+**Grok Bot Super** is a set of playbooks the Bot can read — without any technical setup.
 
-No MCP. No Docker. No tunnels. No YAML.  
-Just a clean website the Bot can sign into like any other app.
+No MCP. No Docker. No tunnels. No YAML.
+This site does not install skills. Visiting a URL is not a save path.
 
 ---
 
-### How to become Super (30 seconds)
+### How to use a playbook (about a minute)
 
 1. Open the live site → [agentmindcloud.github.io/grok-bot-super](https://agentmindcloud.github.io/grok-bot-super/)
-2. Copy the URL
-3. Message your Grok Bot:
+2. Open a skill’s `SKILL.md` (or copy its URL from the [skills browser](https://agentmindcloud.github.io/grok-bot-super/skills.html))
+3. Message your Grok Bot with the playbook URL, for example:
 
 ```text
-Sign into Grok Bot Super at https://agentmindcloud.github.io/grok-bot-super/ and become Super. Learn the available skills as reusable routines.
+Read this playbook and run it once on a safe example (do not send, post, or delete). Then save it as a skill — not a routine — called “Follow-up Drafter”:
+https://agentmindcloud.github.io/grok-bot-super/skills/follow-up-drafter/SKILL.md
 ```
 
-4. Done. The Bot now has access to the community skill library.
+4. After one good run, ask: “Save the process we just used as a skill called ‘<Name>’. Include when to use it, inputs, steps, how to validate, expected output, and approval boundaries.”
+5. Confirm it appears under `/` or **Settings → Plugins → Yours**.
+6. Only then create a **routine** if it should run on a schedule.
+
+Official save paths (from [Grok Bot docs](https://docs.x.ai/grok-bot/skills-routines-and-automations)): save-as-skill after a real task, Settings → Plugins, or Teach a task / a written draft. A **skill** is how. A **routine** is when / which Bot.
 
 ---
 
@@ -61,10 +66,10 @@ Sign into Grok Bot Super at https://agentmindcloud.github.io/grok-bot-super/ and
 
 ### For contributors
 
-Skills are simple Markdown files.  
+Skills are simple Markdown playbooks.
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) and the template in `skills/_template/`.
 
-Good skills are practical, clear, and safe. Prefer step-by-step instructions a Bot can actually follow.
+Good skills are practical, clear, and safe. Prefer step-by-step instructions a Bot can actually follow. The Bot must save them through official Grok Bot paths — this repo does not install skills.
 
 ---
 
@@ -77,7 +82,7 @@ Good skills are practical, clear, and safe. Prefer step-by-step instructions a B
 - [x] Tiny demo section (how the Bot learns a skill)
 - [ ] Simple shared memory board
 - [ ] Bot skins / personality packs
-- [ ] Community skill submissions via PR
+- [x] Community skill submissions via PR
 
 ---
 
