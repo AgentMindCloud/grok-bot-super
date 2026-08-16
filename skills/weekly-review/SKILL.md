@@ -18,6 +18,12 @@ End of week, or when the user feels scattered and wants clarity.
 4. Suggest what to drop, defer, or delegate.
 5. Output a short, motivating review the user can actually act on.
 
+## How to validate
+
+- Next Week Focus has at most 3 items.
+- Open loops from the input appear under Still open or Drop / Defer.
+- No calendar events or messages were changed.
+
 ## Always ask for approval when
 
 - Changing calendar events

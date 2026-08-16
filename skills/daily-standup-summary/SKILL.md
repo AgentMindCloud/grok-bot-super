@@ -18,6 +18,12 @@ None. Pure text processing.
 4. Keep the original meaning — do not invent work.
 5. Format as clean Markdown ready to paste into Slack/Teams/Notion.
 
+## How to validate
+
+- Output has only Yesterday / Today / Blockers.
+- No work was invented. Original meaning is preserved.
+- The summary was not posted to a channel.
+
 ## Always ask for approval when
 
 - The summary will be posted publicly or to a team channel (ask first).

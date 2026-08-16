@@ -24,6 +24,13 @@ None for drafting. (Email/CRM connector only if the Bot should send later.)
 4. Offer 2–3 length/tone variants when useful.
 5. Flag anything that needs personal judgment before sending.
 
+## How to validate
+
+- The recommended draft references a specific detail from the prior conversation.
+- It includes one clear, easy next step.
+- Nothing was sent.
+- If context is missing, ask one question instead of inventing facts.
+
 ## Always ask for approval when
 
 - Sending the message

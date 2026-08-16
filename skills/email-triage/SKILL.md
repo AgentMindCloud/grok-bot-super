@@ -19,6 +19,13 @@ User pastes one or more emails, or asks the Bot to process recent inbox messages
 5. Flag anything that needs human judgment or sensitive content.
 6. Output a clean prioritized list + drafts.
 
+## How to validate
+
+- Every pasted/fetched email appears in a category. None dropped.
+- Every Action needed item has a draft **or** an explicit “needs human” flag.
+- No email was sent, archived, or deleted.
+- If inbox access failed, say so and work only from pasted text.
+
 ## Always ask for approval when
 
 - Sending any email
