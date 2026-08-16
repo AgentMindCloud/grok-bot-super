@@ -6,9 +6,20 @@ Turns a week of notes, calendar, and open loops into a clear weekly review + nex
 
 End of week, or when the user feels scattered and wants clarity.
 
-## Required access
+## Required inputs and access
 
-- Optional: calendar, notes apps, or user pastes the raw material
+**Inputs (required)**
+- A week of raw material, enough to review: notes, wins, finished work, open loops, unfinished commitments, pending decisions.
+- Which week (default: the week just ending).
+- Optional: calendar events, task list, or a “do not drop” list.
+
+Pasted notes are enough. Do not invent a week the user did not provide.
+
+**Access**
+- None if the user pastes the material.
+- Calendar or notes apps only if the Bot should collect them. Read-only. No event or message changes without a fresh approval.
+
+If the material is too thin to review, ask for notes or a calendar dump instead of padding the review.
 
 ## Steps
 

@@ -6,9 +6,17 @@ Turns a messy inbox or pasted emails into prioritized actions + ready-to-send re
 
 User pastes one or more emails, or asks the Bot to process recent inbox messages.
 
-## Required access
+## Required inputs and access
 
-- Gmail / Outlook / email connector (or user pastes the emails)
+**Inputs (required)**
+- The emails themselves: pasted full messages (from / to / subject / date / body), **or** a fetch scope if using a connector (e.g. last 24h, unread, a label, or a count).
+- Optional: the user’s reply voice / tone, and any people or topics to treat as sensitive.
+
+**Access**
+- None if the emails are pasted.
+- Gmail / Outlook / email connector only when the Bot should read the inbox. Draft only. Never send, archive, or delete without a fresh approval.
+
+If neither pasted emails nor a working inbox fetch exist, stop and ask for the emails. Do not invent an inbox.
 
 ## Steps
 
