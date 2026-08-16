@@ -28,3 +28,7 @@ Skills should be practical, clear, and safe. Prefer step-by-step instructions th
 ## Code of Conduct
 
 Be kind. This is a free community project for the Grok ecosystem.
+
+## Copy-prompt smoke
+
+After changing `skills.html`, run `scripts/smoke-copy-prompt.sh` (live Pages) or `scripts/smoke-copy-prompt.sh skills.html` (local). It fails if Copy prompt no longer includes the card’s `SKILL.md` URL.

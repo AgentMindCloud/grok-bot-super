@@ -69,6 +69,7 @@ Official save paths (from [Grok Bot docs](https://docs.x.ai/grok-bot/skills-rout
 
 Skills are simple Markdown playbooks.
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) and the template in `skills/_template/`.
+Copy-prompt smoke (live or local): `scripts/smoke-copy-prompt.sh` — fails if the copied text omits the `SKILL.md` URL.
 
 Good skills are practical, clear, and safe. Prefer step-by-step instructions a Bot can actually follow. The Bot must save them through official Grok Bot paths — this repo does not install skills.
 
