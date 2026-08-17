@@ -19,7 +19,7 @@ Skills should be practical, clear, and safe. Prefer step-by-step instructions th
 
 - Clear title and short description
 - When to use it
-- Required tools / logins (if any)
+- Required inputs and access
 - Exact steps or decision rules
 - How to validate the result
 - What the Bot should return
