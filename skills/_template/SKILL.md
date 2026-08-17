@@ -6,9 +6,15 @@
 
 Describe the situation or trigger.
 
-## Required access
+## Required inputs and access
 
-- List any apps, logins, or connectors the Bot needs
+**Inputs (required)**
+- List what the user must provide (paste, IDs, scope, date range). Say what is optional.
+- What to do if those inputs are missing (ask; do not invent).
+
+**Access**
+- List any apps, logins, or connectors the Bot needs.
+- Say what is allowed (read, draft) vs what always needs a fresh approval (send, spend, delete).
 
 ## Steps
 

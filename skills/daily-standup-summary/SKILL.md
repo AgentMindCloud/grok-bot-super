@@ -6,9 +6,17 @@ Turns a messy list of updates into a clean, professional daily standup summary.
 
 User pastes raw notes, Slack messages, or bullet points about what they did yesterday, today, and blockers.
 
-## Required access
+## Required inputs and access
 
-None. Pure text processing.
+**Inputs (required)**
+- Raw standup notes for this cycle: what was done, what's next, and any blockers (paste is enough).
+- Optional: the channel or audience (Slack / Teams / Notion) and the user's voice.
+
+**Access**
+- None if the notes are pasted.
+- Slack / Teams / notes only if the Bot should collect them. Read-only. Do not post the summary without a fresh approval.
+
+If the notes are too thin to summarize, ask for them. Do not invent work.
 
 ## Steps
 

@@ -6,9 +6,17 @@ Converts raw meeting notes or transcript into clear owners, deadlines, and next 
 
 User pastes meeting notes, transcript, or voice memo summary.
 
-## Required access
+## Required inputs and access
 
-None (text only). Optional calendar if scheduling is requested.
+**Inputs (required)**
+- The meeting notes or transcript to extract from.
+- Optional: attendees, the meeting date, and whether to propose calendar holds.
+
+**Access**
+- None if the notes are pasted.
+- Calendar only if scheduling is requested. Do not create or change events without a fresh approval.
+
+If the notes are too thin to extract actions, ask for them. Do not invent owners or dates.
 
 ## Steps
 
