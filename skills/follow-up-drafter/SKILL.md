@@ -9,9 +9,17 @@ Creates natural, high-signal follow-up messages after meetings, calls, emails, o
 - When you need to re-engage without sounding pushy
 - After sending a proposal or important email
 
-## Required access
+## Required inputs and access
 
-None for drafting. (Email/CRM connector only if the Bot should send later.)
+**Inputs (required)**
+- Context for the follow-up: who, last contact, what was discussed, and the desired outcome.
+- Optional: tone (professional, warm, direct, light) and channel (email, LinkedIn, CRM).
+
+**Access**
+- None for drafting.
+- Email / CRM only if the Bot should look up the thread. Draft only. Never send without a fresh approval.
+
+If context is missing, ask one question instead of inventing facts.
 
 ## Steps
 

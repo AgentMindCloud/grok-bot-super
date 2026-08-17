@@ -6,9 +6,18 @@ Turns a research question into a tight, source-backed brief ready for decisions 
 
 User asks for research on a topic, competitor, market, person, or technology.
 
-## Required access
+## Required inputs and access
 
-- Web browsing / search (Grok Bot has this natively)
+**Inputs (required)**
+- The exact question to answer.
+- Desired depth (quick / standard / deep). Default: standard.
+- Optional: must-include sources, must-avoid sources, or a date cutoff.
+
+**Access**
+- Web browsing / search (Grok Bot has this natively).
+- No paid databases or private docs unless the user provides them or a working connector.
+
+If the question is too vague to research, ask one clarifying question first.
 
 ## Steps
 
