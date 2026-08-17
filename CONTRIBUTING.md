@@ -32,3 +32,7 @@ Be kind. This is a free community project for the Grok ecosystem.
 ## Copy-prompt smoke
 
 After changing `skills.html`, run `scripts/smoke-copy-prompt.sh` (live Pages) or `scripts/smoke-copy-prompt.sh skills.html` (local). It fails if Copy prompt no longer includes the card’s `SKILL.md` URL.
+
+## Docs CI
+
+PRs run `.github/workflows/docs.yml`: relative markdown links must resolve, and `scripts/smoke-copy-prompt.sh skills.html` must pass. Locally: `scripts/check-md-links.sh` then `scripts/smoke-copy-prompt.sh skills.html`.

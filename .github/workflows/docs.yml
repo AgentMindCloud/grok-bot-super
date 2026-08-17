@@ -1,0 +1,14 @@
+name: docs
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check relative markdown links
+        run: scripts/check-md-links.sh
+      - name: Copy-prompt smoke (local)
+        run: scripts/smoke-copy-prompt.sh skills.html
